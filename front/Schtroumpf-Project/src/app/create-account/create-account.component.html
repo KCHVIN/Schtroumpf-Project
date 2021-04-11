@@ -1,0 +1,28 @@
+<form [formGroup]="registerForm">
+        <label>Username:</label>
+        <input formControlName="username">
+        <br>
+
+        <label>age</label>
+        <input formControlName="age" type="number">
+        <br>
+
+        <label>family</label>
+        <input formControlName="family">
+        <br>
+
+        <label>race</label>
+        <input formControlName="race">
+        <br>
+
+        <label>food</label>
+        <input formControlName="food">
+        <br>
+
+        <label>Mot de passe:</label>
+        <input formControlName="password" type="password">
+        <br>
+
+        <br>
+        <button (click)="createAccount()">S'inscrire</button>
+</form>

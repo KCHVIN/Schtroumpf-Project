@@ -1,0 +1,24 @@
+<button [routerLink]="['/carnet']">Retour</button>
+<br>
+<div *ngIf="profileSchtroumpf">
+        <form [formGroup]="registerForm">
+                <label> Nom: </label>
+                <input formControlName="name" value="{{profileSchtroumpf.name}}">
+                <br>
+                <label> Âge: </label>
+                <input formControlName="age" type="number" value="{{profileSchtroumpf.age}}">
+                <br>
+                <label> Famile: </label>
+                <input formControlName="family" value="{{profileSchtroumpf.family}}">
+                <br>
+
+                <label> Race: </label>
+                <input formControlName="race" value="{{profileSchtroumpf.race}}">
+                <br>
+
+                <label> Nourriture: </label>
+                <input formControlName="food" value="{{profileSchtroumpf.food}}">
+        </form>
+        <br>
+        <button (click)="modificationProfil(profileSchtroumpf)">Modifier votre profil Schtroumpf</button>
+</div>

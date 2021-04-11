@@ -1,0 +1,13 @@
+<div>
+        <h1> Ajouter un ami à ma liste !</h1>
+        <form [formGroup]="registerForm">
+                <select (change)="selectSchtroumpf($event)">
+                        <option [ngValue]="null"></option>
+                        <option *ngFor="let elem of listSchtroumpf" [ngValue]="elem">{{elem.name}}</option>
+                </select>
+        </form>
+
+        <button (click)="sendRequest()">
+          Ajouter un ami Schtroumpf
+        </button>
+</div>

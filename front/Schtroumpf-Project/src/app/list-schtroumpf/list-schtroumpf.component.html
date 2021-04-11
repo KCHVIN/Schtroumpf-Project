@@ -1,0 +1,16 @@
+
+<br>
+<button (click)="deconnect()">Déconnexion</button>
+&nbsp;
+<button [routerLink]="['/profil']">Mon Profile </button>
+        <div>
+                <div class="lines"></div>
+                <h4>Liste de mes amis !</h4>
+                <ul *ngFor="let elem of myFriends; let i = index" class="list">
+                        <li>
+                                {{elem}}
+                                <button (click)="deleteElement(elem)" id="delete">X</button>
+                        </li>
+                </ul>
+        </div>
+<app-management-schtroumpf [listSchtroumpf]="config" (myEvent)="getRequest()"></app-management-schtroumpf>

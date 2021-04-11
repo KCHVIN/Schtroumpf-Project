@@ -1,0 +1,14 @@
+<h1> Les Schtroumpfs.com </h1>
+
+<form [formGroup]="registerForm">
+        <label>Identifiant:</label>
+        <input formControlName="username">
+        <br>
+        <label>Mot de passe:</label>
+        <input formControlName="password" type="password">
+        <b *ngIf="!isCorrect"> {{errorMessage}} </b>
+
+</form>
+<br>
+<button (click)="sendConnexionRequest()">Connexion</button>
+<button [routerLink]="['/account']"> S'inscrire </button>
