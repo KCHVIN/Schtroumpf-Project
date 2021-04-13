@@ -44,7 +44,15 @@ export class CreateAccountComponent implements OnInit {
     this.checkHttp = this.request.post('schtroumpfaccount', httpParams.toString());
     this.checkHttp.subscribe(data => {
       if (data) {
-        location.assign("");
+        if (sessionStorage.getItem('token') || sessionStorage.getItem('id'))
+        {
+            location.assign("carnet");
+            sessionStorage.setItem('addfriend', this.registerForm.get('username').value);
+        }
+        else
+        {
+          location.assign("");
+        }
       }
     }, err => {
       console.log(err)

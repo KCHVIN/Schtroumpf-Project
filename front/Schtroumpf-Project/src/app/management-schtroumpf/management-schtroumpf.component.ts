@@ -21,6 +21,23 @@ export class ManagementSchtroumpfComponent implements OnInit {
 
   constructor(private request: RequestService, private formBuilder: FormBuilder)
   {
+    this.addFriendAuto();
+  }
+
+  addFriendAuto()
+  {
+    setTimeout(() => {
+      if (this.listSchtroumpf != undefined)
+      {
+        console.log("rentrer");
+        if (sessionStorage.getItem('addfriend') != "none")
+        {
+          this.selectSchtroumpfByName(sessionStorage.getItem('addfriend'));
+          sessionStorage.removeItem("addfriend");
+          this.sendRequest();
+        }
+      }
+    }, 300);
   }
 
   ngOnInit() {
@@ -36,6 +53,7 @@ export class ManagementSchtroumpfComponent implements OnInit {
   sendRequest()
   {
     const body = this.newSchtroumpfFriend;
+
 
     if (this.newSchtroumpfFriend == null)
     {
@@ -57,6 +75,11 @@ export class ManagementSchtroumpfComponent implements OnInit {
   selectSchtroumpf(elem)
   {
     this.newSchtroumpfFriend = this.listSchtroumpf.find(element => element.name == elem.target.value);
+  }
+
+  selectSchtroumpfByName(elem: string)
+  {
+    this.newSchtroumpfFriend = this.listSchtroumpf.find(element => element.name == elem);
   }
 
 }
